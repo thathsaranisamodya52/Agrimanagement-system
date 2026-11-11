@@ -1,0 +1,135 @@
+:root {
+  --green: #0f6a38;
+  --green-dark: #0a4f2a;
+  --text: #151a17;
+  --muted: #8a9490;
+  --border: #cfd5d2;
+  --bg: #eef0ef;
+  /* Farmer image eka: farmer.jpg kiyala me folder ekatama danna */
+  --hero-image: url("farmer.jpg");
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+
+body {
+  font-family: "Poppins", system-ui, sans-serif;
+  color: var(--text);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--bg);
+}
+
+/* ---------- Left hero ---------- */
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 72px 64px;
+  color: #fff;
+  background:
+    linear-gradient(180deg, rgba(10,79,42,.95) 0%, rgba(15,106,56,.55) 40%, rgba(15,106,56,.15) 100%),
+    var(--hero-image) center / cover no-repeat,
+    linear-gradient(160deg, #0f6a38, #5b8f3a);
+}
+.hero h1 { font-size: clamp(2.2rem, 4.4vw, 3.6rem); line-height: 1.15; font-weight: 700; }
+.hero p  { margin-top: 20px; font-size: clamp(1rem, 1.6vw, 1.4rem); font-weight: 400; }
+
+/* ---------- Right form ---------- */
+.panel { display: grid; place-items: center; padding: 32px; }
+
+.card {
+  width: 100%;
+  max-width: 520px;
+  background: #fff;
+  border-radius: 24px;
+  padding: 40px 36px 36px;
+  box-shadow: 0 10px 40px rgba(0,0,0,.08);
+}
+
+.brand { display: flex; align-items: center; justify-content: center; gap: 10px; color: var(--green); }
+.brand span { font-size: 2.4rem; font-weight: 700; letter-spacing: -.5px; }
+.brand svg { width: 52px; height: 52px; }
+
+h2 { margin: 28px 0 24px; font-size: 1.9rem; font-weight: 600; }
+
+label.field-label { display: block; margin-bottom: 8px; font-weight: 500; font-size: .95rem; }
+
+.input-wrap { position: relative; margin-bottom: 22px; }
+.input-wrap input {
+  width: 100%;
+  height: 52px;
+  padding: 0 48px 0 16px;
+  font: inherit;
+  font-size: .95rem;
+  color: var(--text);
+  background: #f4f5f5;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color .15s, box-shadow .15s, background .15s;
+}
+.input-wrap input::placeholder { color: var(--muted); }
+.input-wrap input:focus {
+  background: #fff;
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(15,106,56,.18);
+}
+
+.toggle {
+  position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
+  width: 36px; height: 36px; border: 0; background: none; cursor: pointer;
+  display: grid; place-items: center; color: #333; border-radius: 6px;
+}
+.toggle:focus-visible { outline: 2px solid var(--green); }
+
+.row { display: flex; justify-content: space-between; align-items: center; margin: -4px 0 24px; font-size: .95rem; }
+.remember { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+.remember input { width: 22px; height: 22px; accent-color: var(--green); cursor: pointer; }
+
+a { color: var(--green); font-weight: 500; }
+.row a { text-decoration: underline; text-underline-offset: 4px; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  width: 100%; height: 52px; font: inherit; font-size: 1.05rem; font-weight: 500;
+  border-radius: 8px; cursor: pointer; transition: background .15s, box-shadow .15s;
+}
+.btn-primary { color: #fff; background: var(--green); border: 0; box-shadow: 0 6px 16px rgba(15,106,56,.25); }
+.btn-primary:hover { background: var(--green-dark); }
+
+.btn-google {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  color: var(--text); background: #fff; border: 1px solid var(--border);
+}
+.btn-google:hover { background: #f7f8f8; }
+.btn:focus-visible { outline: 3px solid rgba(15,106,56,.4); outline-offset: 2px; }
+
+.btn-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--green);
+  background: transparent;
+  border: 2px solid var(--green);
+  margin-top: 15px;
+}
+.btn-secondary:hover {
+  background: rgba(15, 106, 56, 0.08);
+  text-decoration: none;
+}
+
+.divider { margin: 22px 0; text-align: center; color: var(--muted); font-size: .95rem; }
+.signup { margin-top: 24px; text-align: center; font-size: .9rem; }
+.signup a { text-decoration: none; font-weight: 600; margin-left: 4px; }
+.error { color: #b3261e; font-size: .85rem; margin: -14px 0 16px; min-height: 1em; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 860px) {
+  body { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+  .hero { padding: 40px 28px 56px; }
+  .panel { padding: 0 16px 24px; margin-top: -28px; }
+  .card { padding: 28px 22px; }
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AgriManage – Sign Up</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <section class="hero">
+    <h1>Join AgriManage Today</h1>
+    <p>Smart Farming Better Tomorrow</p>
+  </section>
+
+  <main class="panel">
+    <div class="card">
+      <div class="brand">
+         <img src="Agrilogo.avif" alt="AgriManage Logo" width="70" height="70">
+        <span>AgriManage</span>
+      </div>
+
+      <h2>Create your account</h2>
+
+      <form id="signupForm" novalidate>
+        <label class="field-label" for="name">Full Name</label>
+        <div class="input-wrap">
+          <input type="text" id="name" placeholder="Enter your name" autocomplete="name" required>
+        </div>
+
+        <label class="field-label" for="email">Email</label>
+        <div class="input-wrap">
+          <input type="email" id="email" placeholder="Enter your email" autocomplete="email" required>
+        </div>
+
+        <label class="field-label" for="password">Password</label>
+        <div class="input-wrap">
+          <input type="password" id="password" placeholder="At least 6 characters" autocomplete="new-password" required>
+          <button type="button" class="toggle" id="togglePw" aria-label="Show password">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 5C6.5 5 2.7 9 1 12c1.7 3 5.5 7 11 7s9.3-4 11-7c-1.7-3-5.5-7-11-7zm0 11.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm0-7a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z"/></svg>
+          </button>
+        </div>
+
+        <label class="field-label" for="confirm">Confirm Password</label>
+        <div class="input-wrap">
+          <input type="password" id="confirm" placeholder="Re-enter your password" autocomplete="new-password" required>
+        </div>
+
+        <p class="error" id="error" role="alert"></p>
+
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+
+        <p class="signup">Already have an account? <a href="index.html">Login</a></p>
+      </form>
+    </div>
+  </main>
+
+<script src="signup.js"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast & Crop Recommendations</title>
+    <!-- Chart.js Library එක එකතු කිරීම (ප්‍රස්ථාර සඳහා) -->
+    <script src="https://jsdelivr.net"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7faf7;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #1b4d3e;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        h1 { color: #1a251f; }
+        
+        /* වත්මන් තත්ත්වය පෙන්වන Card එක */
+        .current-weather-card {
+            background: linear-gradient(135deg, #1b4d3e, #2e7d32);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .weather-info h2 { margin: 0 0 10px 0; font-size: 2rem; }
+        .weather-info p { margin: 5px 0; font-size: 1.1rem; opacity: 0.9; }
+        .temp-display { font-size: 3.5rem; font-weight: bold; }
+
+        /* ප්‍රස්ථාර කොටස */
+        .chart-section {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #e0e6e0;
+            margin-bottom: 25px;
+        }
+        .chart-section h3 { margin-top: 0; color: #1b4d3e; }
+
+        /* බෝග නිර්දේශ වගුව (Table) */
+        .recommendation-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #e0e6e0;
+        }
+        .recommendation-card h3 { margin-top: 0; color: #1b4d3e; }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 14px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        th {
+            background-color: #d8eedb;
+            color: #1b4d3e;
+        }
+        .badge-sunny {
+            background-color: #ffeaa7;
+            color: #d35400;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        .badge-rainy {
+            background-color: #74b9ff;
+            color: #0984e3;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- ආපසු Dashboard එකට යාමේ ලින්ක් එක -->
+        <a href="home.html" class="back-btn">← Back to Dashboard</a>
+        
+        <h1>🌦️ Weather & Seasonal Crop Planning</h1>
+        <p style="color: #666;">නවතම කාලගුණ අනාවැකි සහ ඒ ඒ කාලගුණයට ගැලපෙන බෝග උපදෙස් මෙතැනින් ලබාගන්න.</p>
+
+        <!-- 1. Current Weather Status Card -->
+        
+
+       
+
+    <div class="recommendation-card">
+            <h3>🌱 Seasonal Crop Guide (කාලීන බෝග මාර්ගෝපදේශය)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>සුදුසු කාලගුණය</th>
+                        <th>නිර්දේශිත බෝග (Crop)</th>
+                        <th>වගා උපදෙස් (Farming Tips)</th>
+                        <th>අස්වනු කාලය (Harvest)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="badge-sunny">වියළි කාලය (Sunny)</span></td>
+                        <td><b>🌶️ මිරිස් (Chilli)</b></td>
+                        <td>අධික වැසි රහිත නිසා මුල් කුණුවීමේ අවදානම අඩුය. මධ්‍යස්ථව ජලය සපයන්න.</td>
+                        <td>දින 75 - 90</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge-sunny">වියළි කාලය (Sunny)</span></td>
+                        <td><b>🍅 තක්කාලි (Tomato)</b></td>
+                        <td>හොඳින් හිරු එළිය ලැබෙන විට මල් හටගැනීම වේගවත් වේ. ආධාරක ලී තබන්න.</td>
+                        <td>දින 60 - 80</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge-rainy">වැසි කාලය (Rainy)</span></td>
+                        <td><b>🌾 වී වගාව (Paddy)</b></td>
+                        <td>වැසි ජලය හොඳින් රඳවා ගනිමින් කුඹුරු සකස් කිරීමට කදිම කාලයයි.</td>
+                        <td>මාස 3 - 4</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge-rainy">වැසි කාලය (Rainy)</span></td>
+                        <td><b>🥬 කංකුං / නිවිති</b></td>
+                        <td>පසෙහි තෙතමනය අධික කාලයට ඉතා වේගයෙන් වර්ධනය වන පලා වර්ගයකි.</td>
+                        <td>දින 25 - 30</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 5-Day Forecast Chart එක ක්‍රියාත්මක කරන JavaScript එක -->
+    
+</body>
+</html>

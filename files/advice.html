@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriManage - Expert Advice</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f4f9f4; }
+        .container { max-width: 600px; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h2 { color: #2e7d32; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; }
+        textarea, input[type="file"] { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { background: #2e7d32; color: white; padding: 12px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        button:disabled { background: #a5d6a7; }
+        #result { margin-top: 25px; padding: 15px; border-radius: 4px; display: none; line-height: 1.6; }
+        .success-box { background: #e8f5e9; border-left: 5px solid #2e7d32; color: #1b5e20; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>🌱 Ask an Expert / AI Advice</h2>
+    <p>ඔබේ වගාවේ ගැටලුව ටයිප් කර හෝ රෝගී වූ කොටසේ පින්තූරයක් ඇතුළත් කර උපදෙස් ලබාගන්න.</p>
+    
+    <form id="adviceForm">
+        <div class="form-group">
+            <label for="problemDescription">ගැටලුව පැහැදිලි කරන්න (Description):</label>
+            <textarea id="problemDescription" rows="5" placeholder="උදා: තක්කාලි කොළ කහ පාට වී වේලී යයි..." required></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="plantImage">වගාවේ පින්තූරය (Optional Image):</label>
+            <input type="file" id="plantImage" accept="image/*">
+        </div>
+        
+        <button type="submit" id="submitBtn">Get Advice</button>
+    </form>
+
+    <!-- උපදෙස් පෙන්වන කොටස -->
+    <div id="result" class="success-box"></div>
+</div>
+
+<script src="advice.js"></script>
+</body>
+</html>

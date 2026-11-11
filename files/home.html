@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AgriManage – Smart Farming Better Tomorrow</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+<!-- Icons (SVG sprite) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M12 2v2M4.93 4.93l1.41 1.41M20 12h2M19.07 4.93l-1.41 1.41M15.95 12.65a4 4 0 0 0-5.93-4.13M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/></symbol>
+    <symbol id="i-trend" viewBox="0 0 24 24"><path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></symbol>
+    <symbol id="i-sprout" viewBox="0 0 24 24"><path d="M7 20h10M12 20v-8"/><path d="M12 12c0-4 3-6 7-6 0 4-3 6-7 6ZM12 14c0-3-2-5-6-5 0 3 2 5 6 5Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4Z" fill="currentColor"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 15l3-3 2 2 3-4"/></symbol>
+  </defs>
+</svg>
+
+<!-- ===== Navbar ===== -->
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="home.html" class="logo">
+      <img src="Agrilogo.avif" alt="AgriManage Logo" width="70" height="70">
+      <span><b>AgriManage</b><small>Smart Farming · Better Tomorrow</small></span>
+    </a>
+
+    <nav class="menu" id="menu">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#features">Features</a>
+      <a href="#services">Services</a>
+      <a href="#resources">Resources</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="index.html" class="btn btn-outline"><svg class="ic"><use href="#i-user"/></svg>Login</a>
+      <a href="signup.html" class="btn btn-primary">Get Started <svg class="ic"><use href="#i-arrow"/></svg></a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-text">
+      <p class="eyebrow">Agriculture Management System</p>
+      <h1>Smarter Decisions<br>for a <em>Healthier Harvest</em></h1>
+      <p class="lead">Manage your farm, get expert advice, monitor crops,<br>and increase your profit — all in one place.</p>
+      <div class="hero-btns">
+        <a href="signup.html" class="btn btn-primary btn-lg">Get Started <svg class="ic"><use href="#i-arrow"/></svg></a>
+        <a href="#" class="btn btn-outline btn-lg">Watch Video <svg class="ic"><use href="#i-play"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Features strip ===== -->
+<section class="features" id="features">
+  <div class="container feat-grid">
+<!-- 🔗 ලින්ක් එක මෙතැනින් ආරම්භ වේ -->
+<a href="crop-diary.html" style="text-decoration: none; color: inherit; display: block;">
+    <div class="feat">
+        <span class="circle">
+            <svg class="ic"><use href="#i-leaf"/></svg>
+        </span>
+        <div>
+            <h4>Crop Management</h4>
+            <p>Track crop health, growth and yield.</p>
+        </div>
+    </div>
+</a>
+<!-- 🔗 ලින්ක් එක මෙතැනින් අවසන් වේ -->
+
+    <div class="feat"><span class="circle"><svg class="ic"><use href="#i-cloud"/></svg></span><div><h4>Weather Updates</h4><p>Get real-time weather forecasts for your area.</p></div></div>
+    <!-- මුළු div එකම ලින්ක් එකක් ඇතුළට ගත්තා -->
+<a href="advice.html" style="text-decoration: none; color: inherit;">
+  <div class="feat">
+    <span class="circle"><svg class="ic"><use href="#i-user"/></svg></span>
+    <div>
+      <h4>Expert Advice</h4>
+      <p>Receive personalized advice from agriculture experts.</p>
+    </div>
+  </div>
+</a>
+
+<!-- home.html ඇතුළත Seeds & Resources කාඩ් එකේ ලින්ක් එක මෙහෙම වෙනස් කරන්න -->
+<a href="shop.html" style="text-decoration: none; color: inherit;">
+  <div class="feat">
+    <span class="circle"><svg class="ic"><use href="#i-sprout"/></svg></span>
+    <div>
+      <h4>Seeds &amp; Resources</h4>
+      <p>Find the best seeds, fertilizers and farming resources.</p>
+    </div>
+  </div>
+</a>
+
+</section>
+
+<!-- ===== About ===== -->
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-text">
+      <p class="eyebrow small">About Our System <i></i></p>
+      <h2>Empowering Farmers<br>for a Sustainable Future</h2>
+      <p>Our Agriculture Management System helps farmers make informed decisions, improve productivity, reduce risks and achieve higher profits using modern technology and expert guidance.</p>
+      <a href="#" class="btn btn-primary">Learn More <svg class="ic"><use href="#i-arrow"/></svg></a>
+    </div>
+
+    <article class="card" id="services">
+      <div class="thumb t1"></div>
+      <span class="badge"><svg class="ic"><use href="#i-chart"/></svg></span>
+      <h3>Farm Monitoring</h3>
+      <p>Track your crops, soil and field conditions easily.</p>
+      <a href="crop-details.html" class="more">Learn More <svg class="ic"><use href="#i-arrow"/></svg></a>
+    </article>
+
+    <article class="card">
+      <div class="thumb t2"></div>
+      <span class="badge"><svg class="ic"><use href="#i-cloud"/></svg></span>
+      <h3>Weather Forecast</h3>
+      <p>Plan your farming activities with accurate weather data.</p>
+      <a href="weather-details.html" class="more">Learn More <svg class="ic"><use href="#i-arrow"/></svg></a>
+    </article>
+
+    <article class="card" id="resources">
+      <div class="thumb t3"></div>
+      <span class="badge"><svg class="ic"><use href="#i-sprout"/></svg></span>
+      <h3>Plant Disease Detection</h3>
+      <p>Identify diseases early and protect your crops.</p>
+      <a href="disease.html" class="more">Learn More <svg class="ic"><use href="#i-arrow"/></svg></a>
+    </article>
+
+    <aside class="promo">
+      <svg class="ic"><use href="#i-leaf"/></svg>
+      <h3>Healthy Farms<br>Happy Future</h3>
+      <p>Together for<br>sustainable agriculture</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="footer" id="contact">
+  <div class="container foot-grid">
+    <div class="foot-brand">
+      <img src="Agrilogo.avif" alt="AgriManage Logo" width="60" height="60"><span><b>AgriManage</b><small>Smart Farming · Better Tomorrow</small></span></a>
+    </div>
+    <div><h5>Quick Links</h5><a href="#home">Home</a><a href="#about">About Us</a><a href="#services">Services</a><a href="#contact">Contact</a></div>
+    <div><h5>Support</h5><a href="#">FAQs</a><a href="#">Help Center</a><a href="#">Privacy Policy</a><a href="#">Terms &amp; Conditions</a></div>
+    <div><h5>Follow Us</h5>
+      <div class="social"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="YouTube">▶</a><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="LinkedIn">in</a></div>
+    </div>
+    <div class="foot-tag"><svg class="ic"><use href="#i-sprout"/></svg><span>Greener Today<br>Brighter Tomorrow</span></div>
+  </div>
+  <p class="copy">© <span id="year">2025</span> AgriManage. All rights reserved.</p>
+</footer>
+
+<script src="home.js"></script>
+</body>
+</html>

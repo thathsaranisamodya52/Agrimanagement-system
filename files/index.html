@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AgriManage – Login</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <section class="hero">
+    <h1>Welcome Back to AgriManage</h1>
+    <p>Smart Farming Better Tomorrow</p>
+  </section>
+
+  <main class="panel">
+    <div class="card">
+      <div class="brand">
+        <!-- Logo eka: oyage real logo eka thiyenawa nam <img src="logo.png"> ekakin replace karanna -->
+        <img src="Agrilogo.avif" alt="AgriManage Logo" width="70" height="70">
+        <span>AgriManage</span>
+      </div>
+
+      <h2>Login to your account</h2>
+
+      <form id="loginForm" novalidate>
+        <label class="field-label" for="email">Email</label>
+        <div class="input-wrap">
+          <input type="email" id="email" name="email" placeholder="Enter your email" autocomplete="email" required>
+        </div>
+
+        <label class="field-label" for="password">Password</label>
+        <div class="input-wrap">
+          <input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password" required>
+          <button type="button" class="toggle" id="togglePw" aria-label="Show password">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 5C6.5 5 2.7 9 1 12c1.7 3 5.5 7 11 7s9.3-4 11-7c-1.7-3-5.5-7-11-7zm0 11.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm0-7a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z"/></svg>
+          </button>
+        </div>
+
+        <p class="error" id="error" role="alert"></p>
+
+        <div class="row">
+          <label class="remember"><input type="checkbox" id="remember"> Remember me</label>
+          <a href="#">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Login</button>
+
+        <p class="divider">— or continue with Google —</p>
+
+        <button type="button" class="btn btn-google" id="googleBtn">
+          <svg width="22" height="22" viewBox="0 0 48 48" aria-hidden="true">
+            <path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z"/>
+            <path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4.1 7.1-10.1 7.1-17.5z"/>
+            <path fill="#FBBC05" d="M10.5 28.7c-.5-1.4-.8-3-.8-4.7s.3-3.2.8-4.7l-7.9-6.1C.9 16.4 0 20.1 0 24s.9 7.6 2.6 10.8l7.9-6.1z"/>
+            <path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.5-5.8c-2.1 1.4-4.8 2.3-8.4 2.3-6.3 0-11.6-4.1-13.5-9.8l-7.9 6.1C6.5 42.6 14.6 48 24 48z"/>
+          </svg>
+          Continue with Google
+        </button>
+
+        <div class="signup-wrapper" style="text-align: center; margin-top: 20px;">
+          <p class="signup" style="margin-bottom: 8px;">Don't have account?</p>
+          <a href="signup.html" class="btn btn-secondary" style="display: inline-block; text-decoration: none; line-height: 48px;">Sign Up</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+
+<script src="script1.js"></script>
+</body>
+</html>

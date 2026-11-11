@@ -1,0 +1,60 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+.env.*
+
+# Logs
+*.log
+
+# VS Code settings
+.vscode/
+
+# Temporary files
+.DS_Store
+Thumbs.db
+
+# Build files
+dist/
+build/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Python virtual environment
+venv/
+**/venv/
+.venv/
+**/.venv/
+
+# Node modules
+node_modules/
+**/node_modules/
+
+# Environment variables
+.env
+**/.env
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Logs
+*.log
+
+
+# Large installer files
+*.msi
+
+# Python virtual environment
+**/venv/
+**/.venv/
+
+# Node modules
+**/node_modules/
+
+# Environment files
+.env
+**/.env
