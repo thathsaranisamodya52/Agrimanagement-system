@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Seed Orders Management</title>
-    <link href="https://googleapis.com" rel="stylesheet">
+    
     <link rel="stylesheet" href="admin-orders.css">
 </head>
 <body>
@@ -28,6 +28,53 @@
         </tbody>
     </table>
 </div>
+<div class="container" style="margin-top: 30px;">
+    <h2>🌱 Add New Crop Guide (බෝග මාර්ගෝපදේශ එක් කරන්න)</h2>
+    
+    <form id="addGuideForm" style="display: grid; gap: 15px; margin-top: 20px;">
+        <div>
+            <label style="font-weight: bold; display: block; margin-bottom: 5px;">බෝගයේ නම (Crop Name):</label>
+            <input type="text" id="cropName" placeholder="උදා: ගෝවා (Cabbage)" required 
+                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
+        </div>
+
+        <div>
+            <label style="font-weight: bold; display: block; margin-bottom: 5px;">පස සහ භූමිය (Soil & Land):</label>
+            <textarea id="cropSoil" rows="2" placeholder="පස සහ භූමිය පිළිබඳ විස්තර..." required 
+                      style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;"></textarea>
+        </div>
+
+        <div>
+            <label style="font-weight: bold; display: block; margin-bottom: 5px;">ජල සම්පාදනය (Water Supply):</label>
+            <textarea id="cropWater" rows="2" placeholder="ජලය යෙදිය යුතු ආකාරය..." required 
+                      style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;"></textarea>
+        </div>
+
+        <div>
+            <label style="font-weight: bold; display: block; margin-bottom: 5px;">පොහොර යෙදීම (Fertilizer):</label>
+            <textarea id="cropFertilizer" rows="2" placeholder="පොහොර යෙදීමේ උපදෙස්..." required 
+                      style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;"></textarea>
+        </div>
+
+        <div>
+            <label style="font-weight: bold; display: block; margin-bottom: 5px;">විශේෂ උපදෙස් (Special Tips):</label>
+            <textarea id="cropTips" rows="2" placeholder="විශේෂ උපදෙස්..." required 
+                      style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;"></textarea>
+        </div>
+
+        <button type="submit" style="background-color: #2e7d32; color: white; padding: 12px 20px; border: none; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; width: fit-content;">
+            ➕ Upload Crop Guide
+        </button>
+    </form>
+        <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
+            <h3>📋 Uploaded Crop Guides (දැනට ඇතුළත් කර ඇති බෝග)</h3>
+            <div id="adminGuidesList" style="margin-top: 15px; display: grid; gap: 10px;">
+            Loading...
+            </div>
+        </div>  
+</div>
+
+
 
 <script src="admin-orders.js"></script>
 </body>

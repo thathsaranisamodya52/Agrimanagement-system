@@ -38,4 +38,77 @@ async function markDelivered(id) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', loadOrders);
+function setupCropGuideForm() {
+    const guideForm = document.getElementById("addGuideForm");
+    if (!guideForm) return;
+
+    guideForm.addEventListener("submit", async function(e) {
+        e.preventDefault();
+
+        const guideData = {
+            crop_name: document.getElementById("cropName").value,
+            soil: document.getElementById("cropSoil").value,
+            water: document.getElementById("cropWater").value,
+            fertilizer: document.getElementById("cropFertilizer").value,
+            special_tips: document.getElementById("cropTips").value
+        };
+
+        try {
+            const response = await fetch("http://127.0.0.1:5002/api/add-crop-guide", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(guideData)
+            });
+
+            const result = await response.json();
+            if (result.success) {
+                alert("✅ නව බෝග මාර්ගෝපදේශය සාර්ථකව ඇතුළත් කරන ලදී!");
+                guideForm.reset();
+            } else {
+                alert("❌ දෝෂයක් ඇති විය: " + result.message);
+            }
+        } catch (error) {
+            alert("❌ Server connection error. Check Port 5002.");
+        }
+    });
+}
+
+async function loadAdminGuides() {
+    try {
+        const res = await fetch("http://127.0.0.1:5002/api/crop-guides");
+        const data = await res.json();
+        const listDiv = document.getElementById("adminGuidesList");
+        if (!listDiv) return;
+        listDiv.innerHTML = "";
+
+        if (data.success && data.guides.length > 0) {
+            data.guides.forEach(guide => {
+                listDiv.innerHTML += `
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 6px;">
+                        <strong>🌱 ${guide.crop_name}</strong>
+                        <button onclick="deleteGuide('${guide._id}')" style="background: #d32f2f; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer;">
+                            🗑️ Delete
+                        </button>
+                    </div>
+                `;
+            });
+        } else {
+            listDiv.innerHTML = "<p>No custom crop guides uploaded yet.</p>";
+        }
+    } catch (error) {
+        console.error(error);
+    }
+}
+async function deleteGuide(id) {
+    if (confirm("මෙම බෝග මාර්ගෝපදේශය මකා දැමීමට අවශ්‍ය බව තහවුරු කරනවාද?")) {
+        await fetch(`http://127.0.0.1:5002/api/crop-guides/${id}`, { method: "DELETE" });
+        loadAdminGuides(); // මැකූ පසු ලැයිස්තුව update වීමට
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadOrders();
+    setupCropGuideForm();
+    loadAdminGuides();
+});
+

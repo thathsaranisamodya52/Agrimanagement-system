@@ -74,5 +74,41 @@
 
     </div>
 
+<!-- Admin විසින් අලුතින් එකතු කරන බෝග මෙතනට load වේ -->
+    <div id="dynamicGuidesContainer">
+
+</div>
+
+<script>
+async function loadCropGuides() {
+    try {
+        const response = await fetch("http://127.0.0.1:5002/api/crop-guides");
+        const data = await response.json();
+        const container = document.getElementById("dynamicGuidesContainer");
+
+        if (data.success && data.guides.length > 0) {
+            data.guides.forEach(guide => {
+                const cardHTML = `
+                    <div class="guide-card" style="background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 20px;">
+                        <h2 style="color: #2e7d32; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 15px;">${guide.crop_name}</h2>
+                        <p><strong>පස සහ භූමිය:</strong> ${guide.soil}</p>
+                        <p><strong>ජල සම්පාදනය:</strong> ${guide.water}</p>
+                        <p><strong>පොහොර යෙදීම:</strong> ${guide.fertilizer}</p>
+                        <p><strong>විශේෂ උපදෙස්:</strong> ${guide.special_tips}</p>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+        }
+    } catch (error) {
+        console.error("Error loading crop guides:", error);
+    }
+}
+
+// පිටුව open වෙනකොටම MongoDB එකෙන් දත්ත load කරන්න
+document.addEventListener("DOMContentLoaded", loadCropGuides);
+</script>
+
+
 </body>
 </html>
