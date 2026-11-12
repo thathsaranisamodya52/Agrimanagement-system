@@ -139,6 +139,16 @@ def get_seeds():
     except Exception as e:
         return jsonify({"success": False, "message": f"Database Error: {str(e)}"}), 500
 
+@app.route('/api/place-order', methods=['POST'])
+def place_order():
+    data = request.json
+    # මෙහිදී data['farmer_name'], data['address'], data['phone'], data['seed_name'], 
+    # data['quantity'], data['total_price'], data['status'] යන දත්ත Database එකට Insert කරන්න.
+    
+    print("New COD Order Received:", data)
+    return jsonify({"success": True, "message": "Order placed successfully!", "order_id": "ORD-001"})
+
+
 
 
 if __name__ == '__main__':

@@ -22,8 +22,16 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <span class="original-price">Rs.${seed.original_price}</span> 
                         Rs.${seed.discount_price}
                     </div>
-                    <button class="buy-btn" onclick="alert('${seed.name} මිලදී ගැනීමට ඇණවුම සාර්ථකව යොමු කරා!')">Buy Now</button>
+                    <button class="buy-btn">Buy Now</button>
                 `;
+                
+                // බටන් එකට click event එකක් වෙනම එකතු කිරීම (Inline onclick ගැටලු මඟහැරේ)
+                const buyButton = card.querySelector('.buy-btn');
+                buyButton.addEventListener('click', () => {
+                    const encodedName = encodeURIComponent(seed.name);
+                    const encodedPrice = encodeURIComponent(seed.discount_price);
+                    window.location.href = `order-seeds.html?name=${encodedName}&price=${encodedPrice}`;
+                });
                 
                 productGrid.appendChild(card);
             });

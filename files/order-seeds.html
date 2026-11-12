@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AgriManage – Order Seeds</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="order-seeds.css">
+</head>
+<body>
+    <section class="hero">
+        <h1>Confirm Your Seed Order</h1>
+        <p>Smart Farming Starts with the Best Seeds</p>
+    </section>
+
+    <main class="panel">
+        <div class="card">
+            <div class="brand">
+                <img src="Agrilogo.avif" alt="AgriManage Logo" width="70" height="70">
+                <span>AgriManage Delivery</span>
+            </div>
+            
+            <!-- තෝරාගත් බීජ වර්ගය සහ මිල මෙතන කෙලින්ම පෙන්වයි -->
+            <div style="background-color: #f1f8e9; padding: 15px; border-radius: 8px; border-left: 5px solid #2e7d32; margin-bottom: 20px;">
+                <h3 id="displaySeedName" style="font-size: 18px; color: #2e7d32; margin-bottom: 5px;">Loading seed details...</h3>
+                <p style="font-size: 16px; font-weight: 600; color: #333;">
+                    Price: Rs. <span id="displayBasePrice">0.00</span> | 
+                    Total: Rs. <span id="displayTotalPrice">0.00</span>
+                </p>
+            </div>
+
+
+            <h2>Delivery Details (බෙදාහැරීමේ විස්තර)</h2>
+            
+            <form id="seedOrderForm">
+                
+                <!-- සැඟවුණු input එකක් මඟින් backend එකට බීජ වර්ගය යැවීම සඳහා (Optional) -->
+                <input type="hidden" name="seed_type" value="carrot_50g">
+
+                <!-- 1. අවශ්‍ය පැකට්/කිලෝග්‍රෑම් ප්‍රමාණය -->
+                <label class="field-label" for="quantity">Quantity (අවශ්‍ය පැකට් ප්‍රමාණය)</label>
+                <div class="input-wrap">
+                    <input type="number" id="quantity" value="1" min="1" required>
+                </div>
+
+                <hr style="border: 0; border-top: 1px dashed #ccc; margin: 20px 0;">
+
+                <!-- 2. ගොවියාගේ නම -->
+                <label class="field-label" for="farmerName">Farmer's Name (නම)</label>
+                <div class="input-wrap">
+                    <input type="text" id="farmerName" placeholder="Enter your full name" required>
+                </div>
+
+                <!-- 3. දුරකථන අංකය -->
+                <label class="field-label" for="phone">Phone Number (දුරකථන අංකය)</label>
+                <div class="input-wrap">
+                    <input type="tel" id="phone" placeholder="e.g., 0771234567" pattern="[0-9]{10}" required>
+                </div>
+
+                <!-- 4. බීජ ලැබිය යුතු ලිපිනය -->
+                <label class="field-label" for="address">Delivery Address (ලිපිනය)</label>
+                <div class="input-wrap">
+                    <input type="text" id="address" placeholder="Enter complete home or farm address" required>
+                </div>
+
+                <!-- 5. දිස්ත්‍රික්කය -->
+                <label class="field-label" for="district">District (දිස්ත්‍රික්කය)</label>
+                <div class="input-wrap">
+                    <select id="district" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-family: 'Poppins', sans-serif;">
+                        <option value="" disabled selected>Select your district</option>
+                        <option value="colombo">Colombo</option>
+                        <option value="gampaha">Gampaha</option>
+                        <option value="kurunegala">Kurunegala</option>
+                        <option value="anuradhapura">Anuradhapura</option>
+                        <option value="polonnaruwa">Polonnaruwa</option>
+                        <option value="badulla">Badulla</option>
+                        <option value="nuwaraeliya">Nuwara Eliya</option>
+                    </select>
+                </div>
+
+                <!-- 6. ගෙවීම් ක්‍රමය -->
+                <label class="field-label" for="paymentMethod">Payment Method (ගෙවීම් ක්‍රමය)</label>
+                <div class="input-wrap">
+                    <select id="paymentMethod" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-family: 'Poppins', sans-serif;">
+                        <option value="cod">Cash on Delivery (බීජ ලැබුණු පසු මුදල් ගෙවීම)</option>
+                        <option value="card">Card Payment (කාඩ්පතකින් ගෙවීම)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="margin-top: 25px;">Confirm & Place Order (ඇණවුම තහවුරු කරන්න)</button>
+                <p class="signup"><a href="index.html">Cancel</a></p>
+            </form>
+        </div>
+    </main>
+    <script>
+    // 1. URL එකෙන් දත්ත (Name & Price) කියවා ගැනීම
+    const urlParams = new URLSearchParams(window.location.search);
+    const seedName = urlParams.get('name') || "Seeds Pack";
+    let seedPrice = parseFloat(urlParams.get('price')) || 0;
+
+    // 2. HTML එකේ අදාළ තැන්වලට එම දත්ත ඇතුළත් කිරීම
+    document.getElementById('displaySeedName').innerText = seedName;
+    document.getElementById('displayBasePrice').innerText = seedPrice.toFixed(2);
+    
+    const quantityInput = document.getElementById('quantity');
+    const totalPriceDisplay = document.getElementById('displayTotalPrice');
+
+    // 3. මුළු මුදල (Total Price) ගණනය කිරීම
+    function updatePrice() {
+        const qty = parseInt(quantityInput.value) || 1;
+        const total = seedPrice * qty;
+        totalPriceDisplay.innerText = total.toFixed(2);
+    }
+
+    updatePrice();
+    quantityInput.addEventListener('input', updatePrice);
+
+    // 4. Form එක Submit කළ විට Backend එකට යවා Success Page එකට යාම
+    document.getElementById('seedOrderForm').addEventListener('submit', async function(e) {
+        e.preventDefault(); // පිටුව නිකරුණේ reload වීම නතර කරයි
+
+        const qty = parseInt(quantityInput.value) || 1;
+        const total = seedPrice * qty;
+
+        // Admin table එකට ගැලපෙන ලෙස දත්ත සකස් කිරීම
+        const orderData = {
+            seed_name: seedName,
+            quantity: qty,
+            total_price: total,
+            farmer_name: document.getElementById('farmerName').value,
+            phone: document.getElementById('phone').value,
+            address: document.getElementById('address').value,
+            district: document.getElementById('district').value,
+            payment_method: document.getElementById('paymentMethod').value,
+            status: 'Pending',
+            order_date: new Date().toISOString().split('T')[0] // අද දිනය
+        };
+
+        try {
+            // ඔබගේ Backend API URL එක මෙතැනට දමන්න (උදා: http://127.0.0)
+            const response = await fetch('http://127.0.0.1:5002/api/place-order', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(orderData)
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                // සාර්ථකව Save වූ පසු Success Page එකට යොමු කිරීම
+                window.location.href = 'order-success.html';
+            } else {
+                alert("ඇණවුම තහවුරු කිරීමේදී දෝෂයක් ඇති විය!");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            // Backend server එක තවම සාදා නැත්නම්, පරීක්ෂා කිරීම සඳහා පහත පේළිය uncomment කරන්න:
+            // window.location.href = 'order-success.html';
+            alert("Server එක සමඟ සම්බන්ධ වීමට නොහැකි විය. Backend server එක ක්‍රියාත්මක දැයි බලන්න.");
+        }
+    });
+</script>
+
+</body>
+</html>

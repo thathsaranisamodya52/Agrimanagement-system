@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>මගේ වගා දිනපොත - Crop Diary</title>
+    <title>My Crop Diary - Crop Diary</title>
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="crop-style.css">
 </head>
@@ -11,55 +11,55 @@
 
 <div class="container">
     <header>
-        <h1>🌱 මගේ වගා දිනපොත (Crop Diary)</h1>
-        <p>ඔබේ වගාවන් ඇතුළත් කර පොහොර සහ ජල කළමනාකරණය නිවැරදිව සිදුකරන්න.</p>
+        <h1>🌱 My Crop Diary (Crop Diary)</h1>
+        <p>Add your crops and manage fertilizer and water correctly.</p>
     </header>
 
     <div class="main-layout">
-        <!-- ➕ වගාවන් ඇතුළත් කිරීමේ Form එක -->
+        <!-- ➕ Crop Entry Form-->
         <div class="card form-card">
-            <h2>➕ අලුත් වගාවක් ඇතුළත් කරන්න</h2>
+            <h2>➕ Add a new crop</h2>
             <form id="cropForm">
                 <div class="form-group">
-                    <label for="cropType">බෝග වර්ගය තෝරන්න:</label>
+                    <label for="cropType">Select Crop Type:</label>
                     <select id="cropType" required>
-                        <option value="">-- තෝරන්න --</option>
-                        <option value="tomato">තක්කාලි (Tomato)</option>
-                        <option value="chili">මිරිස් (Chili)</option>
-                        <option value="paddy">වී වගාව (Paddy)</option>
+                        <option value="">-- select --</option>
+                        <option value="tomato">Tomato</option>
+                        <option value="chili">Chili</option>
+                        <option value="paddy">Paddy</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="plantDate">වගා කළ දිනය:</label>
+                    <label for="plantDate">Date Planted:</label>
                     <input type="date" id="plantDate" required>
                 </div>
 
-                <button type="submit" class="btn-submit">🌾 වගාව ඇතුළත් කරන්න</button>
+                <button type="submit" class="btn-submit">🌾 Submit Crop</button>
             </form>
         </div>
 
         <!-- 📊 වගා තත්ත්වයන් පෙන්වන කොටස -->
         <div class="card status-card">
-            <h2>📈 වගා තත්ත්ව නිරීක්ෂණය</h2>
-            <div id="noDataMessage" class="empty-message">තවමත් වගාවන් ඇතුළත් කර නැත. කරුණාකර වම්පස ඇති පෝරමය පුරවන්න.</div>
+            <h2>📈 Crop Status Monitoring</h2>
+            <div id="noDataMessage" class="empty-message">No crops added yet. Please fill out the form on the left.</div>
             
             <div id="cropStatusDisplay" class="status-display" style="display: none;">
                 <div class="status-item">
-                    <strong>තෝරාගත් බෝගය:</strong> <span id="resName">-</span>
+                    <strong>Selected Crop:</strong> <span id="resName">-</span>
                 </div>
                 <div class="status-item">
-                    <strong>බෝගයේ වයස:</strong> <span id="resAge" class="badge-age">-</span>
+                    <strong>Crop Age:</strong> <span id="resAge" class="badge-age">-</span>
                 </div>
                 
                 <div class="guide-box text-fertilizer">
-                    <h3>🍃 පොහොර කළමනාකරණය (Fertilizer Guide)</h3>
+                    <h3>🍃 Fertilizer Management" (Fertilizer Guide)</h3>
                     <p id="resFertilizer">-</p>
                     <div class="notification-alert" id="fertNotify">🔔 මතක් කිරීම: පොහොර යෙදීමට කාලය පැමිණ ඇත!</div>
                 </div>
 
                 <div class="guide-box text-water">
-                    <h3>💧 ජල කළමනාකරණය (Irrigation Guide)</h3>
+                    <h3>💧 Water Management(Irrigation Guide)</h3>
                     <p id="resWater">-</p>
                     <div class="notification-alert" id="waterNotify">🔔 මතක් කිරීම: වගාවට ජලය සැපයීමට මතක් කරන්න!</div>
                 </div>
@@ -68,7 +68,7 @@
     </div>
     
     <div style="text-align: center; margin-top: 20px;">
-        <a href="home.html" class="back-link">← මුල් පිටුවට</a>
+        <a href="home.html" class="back-link">← Homepage</a>
     </div>
 </div>
 

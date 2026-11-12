@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmed - AgriManage</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="order-success.css">
+</head>
+<body>
+    <div class="success-card">
+        <div class="icon">✅</div>
+        <h2>ඇණවුම සාර්ථකයි!</h2>
+        <p>ඔබේ බීජ ඇණවුම අප වෙත ලැබී ඇත. ඉතා ඉක්මනින් ඔබේ නිවසටම බෙදාහරිනු ඇත.</p>
+        
+        <div class="details">
+            <p><strong>Order ID:</strong> <span id="orderId">#</span></p>
+            <p><strong>Payment Method:</strong> Cash on Delivery (භාණ්ඩ ලැබුණු පසු ගෙවන්න)</p>
+            <p><strong>Amount to Pay (ගෙවිය යුතු මුදල):</strong> Rs. <span id="totalAmount">0.00</span></p>
+        </div>
+
+        <!-- ඔබේ ප්‍රධාන බීජ ෂොප් පිටුවේ නම shop.html නොවේ නම් මෙතන href=" " වෙනස් කරන්න -->
+        <a href="shop.html" class="btn">තවත් බීජ මිලදී ගන්න (Back to Shop)</a>
+    </div>
+
+    <script src="order-success.js"></script>
+</body>
+</html>
