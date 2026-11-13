@@ -73,7 +73,7 @@ a { color: inherit; text-decoration: none; }
 
 /* ---------- Features strip ---------- */
 .features { background: var(--bg-soft); padding: 36px 0; }
-.feat-grid { display: grid; grid-template-columns: repeat(4, 1fr); 
+.feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); 
 justify-content:center;  }
 .feat { display: flex; gap: 14px; align-items: flex-start; padding: 0 20px; border-right: 1px solid var(--border); }
 .feat:first-child { padding-left: 0; } .feat:last-child { border-right: 0; }

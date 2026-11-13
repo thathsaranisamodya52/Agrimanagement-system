@@ -92,7 +92,7 @@ def get_plant_advice():
 
         # Gemini මොඩල් එක හරහා පිළිතුර ලබා ගැනීම
         response = client_ai.models.generate_content(
-            model='gemini-2.0-flash',
+            model='gemini-3.5-flash',
             contents=contents
         )
         
