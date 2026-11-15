@@ -57,7 +57,7 @@
       <p class="lead">Manage your farm, get expert advice, monitor crops,<br>and increase your profit — all in one place.</p>
       <div class="hero-btns">
         <a href="signup.html" class="btn btn-primary btn-lg">Get Started <svg class="ic"><use href="#i-arrow"/></svg></a>
-        <a href="#" class="btn btn-outline btn-lg">Watch Video <svg class="ic"><use href="#i-play"/></svg></a>
+        <a href="#" id="watchBtn" class="btn btn-outline btn-lg">Watch Video <svg class="ic"><use href="#i-play"/></svg></a>
       </div>
     </div>
   </div>
@@ -162,6 +162,19 @@
   </div>
   <p class="copy">© <span id="year">2025</span> AgriManage. All rights reserved.</p>
 </footer>
+
+<!-- ===== Video Popup Modal ===== -->
+<div id="videoModal" class="video-modal">
+  <div class="video-modal-content">
+    <span class="close-video" id="closeVideo">&times;</span>
+    <video id="demoVideo" controls>
+      <source src="demo.mp4" type="video/mp4">
+      ඔබේ බ්‍රවුසරය මෙම වීඩියෝවට සහාය නොදක්වයි.
+    </video>
+  </div>
+</div>
+
+
 
 <script src="home.js"></script>
 </body>

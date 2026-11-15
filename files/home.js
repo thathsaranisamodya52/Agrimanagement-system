@@ -16,3 +16,31 @@ window.addEventListener('scroll', () => {
 
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// Video Popup Modal
+const watchBtn = document.getElementById('watchBtn');
+const videoModal = document.getElementById('videoModal');
+const closeVideo = document.getElementById('closeVideo');
+const demoVideo = document.getElementById('demoVideo');
+
+if (watchBtn && videoModal) {
+  watchBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    videoModal.style.display = 'flex';
+    demoVideo.play();
+  });
+
+  closeVideo.addEventListener('click', () => {
+    videoModal.style.display = 'none';
+    demoVideo.pause();
+    demoVideo.currentTime = 0;
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === videoModal) {
+      videoModal.style.display = 'none';
+      demoVideo.pause();
+      demoVideo.currentTime = 0;
+    }
+  });
+}
