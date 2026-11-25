@@ -20,7 +20,7 @@
                 <span>AgriManage Delivery</span>
             </div>
             
-            <!-- තෝරාගත් බීජ වර්ගය සහ මිල මෙතන කෙලින්ම පෙන්වයි -->
+            
             <div style="background-color: #f1f8e9; padding: 15px; border-radius: 8px; border-left: 5px solid #2e7d32; margin-bottom: 20px;">
                 <h3 id="displaySeedName" style="font-size: 18px; color: #2e7d32; margin-bottom: 5px;">Loading seed details...</h3>
                 <p style="font-size: 16px; font-weight: 600; color: #333;">
@@ -34,10 +34,10 @@
             
             <form id="seedOrderForm">
                 
-                <!-- සැඟවුණු input එකක් මඟින් backend එකට බීජ වර්ගය යැවීම සඳහා (Optional) -->
+                
                 <input type="hidden" name="seed_type" value="carrot_50g">
 
-                <!-- 1. අවශ්‍ය පැකට්/කිලෝග්‍රෑම් ප්‍රමාණය -->
+                
                 <label class="field-label" for="quantity">Quantity (අවශ්‍ය පැකට් ප්‍රමාණය)</label>
                 <div class="input-wrap">
                     <input type="number" id="quantity" value="1" min="1" required>
@@ -45,25 +45,25 @@
 
                 <hr style="border: 0; border-top: 1px dashed #ccc; margin: 20px 0;">
 
-                <!-- 2. ගොවියාගේ නම -->
+                
                 <label class="field-label" for="farmerName">Farmer's Name (නම)</label>
                 <div class="input-wrap">
                     <input type="text" id="farmerName" placeholder="Enter your full name" required>
                 </div>
 
-                <!-- 3. දුරකථන අංකය -->
+                
                 <label class="field-label" for="phone">Phone Number (දුරකථන අංකය)</label>
                 <div class="input-wrap">
                     <input type="tel" id="phone" placeholder="e.g., 0771234567" pattern="[0-9]{10}" required>
                 </div>
 
-                <!-- 4. බීජ ලැබිය යුතු ලිපිනය -->
+                
                 <label class="field-label" for="address">Delivery Address (ලිපිනය)</label>
                 <div class="input-wrap">
                     <input type="text" id="address" placeholder="Enter complete home or farm address" required>
                 </div>
 
-                <!-- 5. දිස්ත්‍රික්කය -->
+                
                 <label class="field-label" for="district">District (දිස්ත්‍රික්කය)</label>
                 <div class="input-wrap">
                     <select id="district" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-family: 'Poppins', sans-serif;">
@@ -78,7 +78,7 @@
                     </select>
                 </div>
 
-                <!-- 6. ගෙවීම් ක්‍රමය -->
+                
                 <label class="field-label" for="paymentMethod">Payment Method (ගෙවීම් ක්‍රමය)</label>
                 <div class="input-wrap">
                     <select id="paymentMethod" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-family: 'Poppins', sans-serif;">
@@ -93,19 +93,19 @@
         </div>
     </main>
     <script>
-    // 1. URL එකෙන් දත්ත (Name & Price) කියවා ගැනීම
+    
     const urlParams = new URLSearchParams(window.location.search);
     const seedName = urlParams.get('name') || "Seeds Pack";
     let seedPrice = parseFloat(urlParams.get('price')) || 0;
 
-    // 2. HTML එකේ අදාළ තැන්වලට එම දත්ත ඇතුළත් කිරීම
+    
     document.getElementById('displaySeedName').innerText = seedName;
     document.getElementById('displayBasePrice').innerText = seedPrice.toFixed(2);
     
     const quantityInput = document.getElementById('quantity');
     const totalPriceDisplay = document.getElementById('displayTotalPrice');
 
-    // 3. මුළු මුදල (Total Price) ගණනය කිරීම
+    
     function updatePrice() {
         const qty = parseInt(quantityInput.value) || 1;
         const total = seedPrice * qty;
@@ -115,14 +115,14 @@
     updatePrice();
     quantityInput.addEventListener('input', updatePrice);
 
-    // 4. Form එක Submit කළ විට Backend එකට යවා Success Page එකට යාම
+    
     document.getElementById('seedOrderForm').addEventListener('submit', async function(e) {
-        e.preventDefault(); // පිටුව නිකරුණේ reload වීම නතර කරයි
+        e.preventDefault(); 
 
         const qty = parseInt(quantityInput.value) || 1;
         const total = seedPrice * qty;
 
-        // Admin table එකට ගැලපෙන ලෙස දත්ත සකස් කිරීම
+        
         const orderData = {
             seed_name: seedName,
             quantity: qty,
@@ -156,8 +156,8 @@
             }
         } catch (error) {
             console.error("Error:", error);
-            // Backend server එක තවම සාදා නැත්නම්, පරීක්ෂා කිරීම සඳහා පහත පේළිය uncomment කරන්න:
-            // window.location.href = 'order-success.html';
+            
+            
             alert("Server එක සමඟ සම්බන්ධ වීමට නොහැකි විය. Backend server එක ක්‍රියාත්මක දැයි බලන්න.");
         }
     });

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="si">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,31 +34,31 @@
     <form id="addGuideForm" style="display: grid; gap: 15px; margin-top: 20px;">
         <div>
             <label style="font-weight: bold; display: block; margin-bottom: 5px;">Crop Name:</label>
-            <input type="text" id="cropName" placeholder="උදා: ගෝවා (Cabbage)" required 
+            <input type="text" id="cropName" placeholder="Example: Cabbage" required 
                    style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
         </div>
 
         <div>
-            <label style="font-weight: bold; display: block; margin-bottom: 5px;">පස සහ භූමිය (Soil & Land):</label>
-            <textarea id="cropSoil" rows="2" placeholder="පස සහ භූමිය පිළිබඳ විස්තර..." required 
+            <label style="font-weight: bold; display: block; margin-bottom: 5px;">Soil & Land:</label>
+            <textarea id="cropSoil" rows="2" placeholder="Details about soil and land..." required 
                       style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;"></textarea>
         </div>
 
         <div>
-            <label style="font-weight: bold; display: block; margin-bottom: 5px;">ජල සම්පාදනය (Water Supply):</label>
-            <textarea id="cropWater" rows="2" placeholder="ජලය යෙදිය යුතු ආකාරය..." required 
+            <label style="font-weight: bold; display: block; margin-bottom: 5px;">Water Supply:</label>
+            <textarea id="cropWater" rows="2" placeholder="Details about water supply..." required 
                       style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;"></textarea>
         </div>
 
         <div>
-            <label style="font-weight: bold; display: block; margin-bottom: 5px;">පොහොර යෙදීම (Fertilizer):</label>
-            <textarea id="cropFertilizer" rows="2" placeholder="පොහොර යෙදීමේ උපදෙස්..." required 
+            <label style="font-weight: bold; display: block; margin-bottom: 5px;">Fertilizer Application:</label>
+            <textarea id="cropFertilizer" rows="2" placeholder="Details about fertilizer application..." required 
                       style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;"></textarea>
         </div>
 
         <div>
-            <label style="font-weight: bold; display: block; margin-bottom: 5px;">විශේෂ උපදෙස් (Special Tips):</label>
-            <textarea id="cropTips" rows="2" placeholder="විශේෂ උපදෙස්..." required 
+            <label style="font-weight: bold; display: block; margin-bottom: 5px;">Special Tips:</label>
+            <textarea id="cropTips" rows="2" placeholder="Special tips..." required 
                       style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;"></textarea>
         </div>
 
@@ -67,7 +67,7 @@
         </button>
     </form>
         <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
-            <h3>📋 Uploaded Crop Guides (දැනට ඇතුළත් කර ඇති බෝග)</h3>
+            <h3>📋 Uploaded Crop Guides (Currently Uploaded Guides)</h3>
             <div id="adminGuidesList" style="margin-top: 15px; display: grid; gap: 10px;">
             Loading...
             </div>
